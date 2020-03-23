@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  </head>
+<body>
+<span id='name'></span>: <input type="text" id="field1" value=""><br>
+<button onclick="finishAnswer()" id='endBtn'>计算结束</button>
+<button onclick="start()" id='startBtn'>开始</button>
+<span id='point'></span>
+
+<script>
+  const maxPointString = 'maxPoint'; 
+  let end = false;
+  let point = 0;
+  let dividend  = ''; //被除数
+  let divisor  = ''; //除数
+  let count = 0;
+  let timer = undefined;
+  let maxPoint = -1;
+
+  init();
+
+  /**
+   * 初始化函数 
+   **/
+  function init(){
+    document.getElementById("point").innerText = `当前分数${ 0 }`;
+    document.getElementById("name").innerText = `等待开始`;
+    
+    const point = localStorage.getItem(maxPointString);
+
+    if(!point){
+      localStorage.setItem(maxPointString, maxPoint);
+    }
+    else{
+      maxPoint = Number(maxPoint);
+    }
+  }
+
+  //====================================状态类====================================
+  function start(){
+    let dividendString  = '';
+    let divisorString  = '';
+
+    for(let i = 0; i < 6; i++){
+        var ccc = Math.floor((Math.random() * 10));
+
+        dividendString += String(ccc);
+
+        if( i < 3){
+            var dd = Math.floor((Math.random() * 10));
+
+            divisorString += String(dd); 
+        }
+    }
+
+    dividend = Number(dividendString);
+    divisor = Number(divisor);
+
+    document.getElementById("name").innerText = `公式${ dividend }/${ divisor }`;
+
+    timer = setInterval(() => {
+      count++;
+      if(count > 90){
+        overTime();
+      }
+    }, 1000 * 1);
+  }
+
+  function endGame(){
+    if(point > maxPoint){
+      maxPoint = point;
+      localStorage.setItem(maxPointString, point);
+    }
+
+    document.getElementById("point").innerText = `最终分数${ point },历史最高分${ maxPoint }`;
+    end = true;
+  }
+  
+
+  //====================================工具类====================================
+  function finishAnswer(){
+    if(end){
+      return;
+    }
+
+    const answer = Number(document.getElementById("field1").value);
+
+    console.log('answar', answer);
+    document.getElementById("name").innerText = `结果${ (dividend / divisor ).toFixed(1) }`;
+    clearInterval(timer);
+    count = 0;
+    if(Number(answer) === Number((dividend / divisor ).toFixed(1))){
+      point += 1;
+      document.getElementById("point").innerText = `当前分数${ point }`;
+
+      start();
+    }
+    else{
+      endGame();
+    }
+  }
+
+  function overTime(){
+    clearInterval(timer);
+    count = 0;
+    document.getElementById("name").innerText = `结果${ (dividend / divisor ).toFixed(1) }`;
+    endGame();
+  }
+
+</script>
+</body>
+</html>
+
+
+
