@@ -26,6 +26,14 @@ function init(){
   startBtnDoc.style.display = 'block';
 
   const point = localStorage.getItem(maxPointString);
+
+  startBtnDoc.addEventListener('click', () => {
+    start();
+  });
+  endBtnDoc.addEventListener('click', () => {
+    giveResult()
+  });
+
   if(!point){
     localStorage.setItem(maxPointString, maxPoint);
   }
