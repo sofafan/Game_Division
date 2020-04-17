@@ -58,7 +58,7 @@ function start(){
   nameDoc.innerText = `公式${ dividend }/${ divisor }`;
   timer = setInterval(() => {
     count++;
-    if(count > 20){
+    if(count > 90){
       giveResult(true);
     }
   }, 1000 * 1);
