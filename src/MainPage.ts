@@ -1,4 +1,4 @@
-const pointDoc: HTMLElement = document.getElementById("_point");
+const pointDoc: HTMLElement = document.getElementById("point");
 const nameDoc: HTMLElement = document.getElementById("name");
 const endBtnDoc: HTMLElement = document.getElementById("endBtn");
 const startBtnDoc: HTMLElement = document.getElementById("startBtn");
