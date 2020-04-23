@@ -15,8 +15,17 @@ module.exports = {
         //     filename: 'index.html',
         //     // template: 'src/index.html'
         // }),
-        new CleanWebpackPlugin({
-            cleanAfterEveryBuildPatterns: ["dist"],
-        })
-    ]
+        // new CleanWebpackPlugin({
+        //     cleanAfterEveryBuildPatterns: ["dist"],
+        // })
+    ],
+    devServer: {
+		contentBase: './dist', // 告诉服务器从哪里提供内容
+		host: '127.0.0.1', // 默认是 localhost
+		port: 8088, // 端口号, 默认是8080
+        open: true, // 是否自动打开浏览器
+		hot: true, // 启用 webpack 的模块热替换特性
+		// hotOnly: true // 当编译失败之后不进行热更新
+    },
+    devtool: 'inline-source-map',
 };

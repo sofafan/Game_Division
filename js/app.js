@@ -2,5 +2,5 @@ define(["require", "exports", "./page/MainPage"], function (require, exports, Ma
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var mainPage = new MainPage_1.default();
-    console.log('=============ccccccccc');
+    console.log('=============dddddddddddd');
 });

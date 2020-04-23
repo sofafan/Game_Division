@@ -5,7 +5,9 @@
   "main": "aaaa.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc && webpack"
+    "build": "tsc && webpack && cp index.html dist",
+    "watch": "webpack --watch",
+    "start": "webpack-dev-server --open"
   },
   "author": "",
   "license": "ISC",
