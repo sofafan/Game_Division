@@ -5,6 +5,7 @@
    "module": "amd",
    "removeComments": false,
    "sourceMap": false,
+   "moduleResolution": "node",
    "outDir": "js"//你要生成js的目录
   }
 }
