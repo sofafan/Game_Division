@@ -10,11 +10,11 @@ module.exports = {
         filename: "bundle.js"
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            title: 'Webpack Output Management',
-            filename: 'index.html',
-            // template: 'src/index.html'
-        }),
+        // new HtmlWebpackPlugin({
+        //     title: 'Webpack Output Management',
+        //     filename: 'index.html',
+        //     // template: 'src/index.html'
+        // }),
         new CleanWebpackPlugin({
             cleanAfterEveryBuildPatterns: ["dist"],
         })
